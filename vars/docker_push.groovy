@@ -1,5 +1,5 @@
 def call(String project, String imageTag, String dockerHubUser) {
 withCredentials ([username Password (credentials Id: 'DockerHubCred', passwordVariable: 'DockerHubCredPass', username Variable: 'DockerHubCredUser')])
-sh "sudo cker login -u ${DockerHubCredUser} -p ${DockerHubCredPass}"
+sh "sudo docker login -u ${DockerHubCredUser} -p ${DockerHubCredPass}"
 sh "sudo docker push ${DockerHubCredUser}/${Project}:${ImageTag}"
 }
